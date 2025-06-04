@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: first-assignment
+  datasource:
+    url: ${MY_SQL_URL}
+    username: ${MY_SQL_USERNAME}
+    password: ${MY_SQL_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
