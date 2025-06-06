@@ -1,9 +1,9 @@
-package com.assignment.assignment1.rest;
+package com.assignment.rest;
 
 
-import com.assignment.assignment1.entity.UserEntity;
-import com.assignment.assignment1.model.User;
-import com.assignment.assignment1.service.UserService;
+import com.assignment.entity.UserEntity;
+import com.assignment.model.User;
+import com.assignment.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

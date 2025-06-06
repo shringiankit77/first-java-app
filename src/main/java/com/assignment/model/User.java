@@ -1,4 +1,4 @@
-package com.assignment.assignment1.model;
+package com.assignment.model;
 
 public class User {
     private String name;

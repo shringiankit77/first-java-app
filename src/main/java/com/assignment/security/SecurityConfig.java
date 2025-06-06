@@ -1,4 +1,4 @@
-package com.assignment.assignment1.security;
+package com.assignment.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

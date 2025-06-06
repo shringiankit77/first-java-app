@@ -1,7 +1,7 @@
-package com.assignment.assignment1.repository;
+package com.assignment.repository;
 
 
-import com.assignment.assignment1.entity.UserEntity;
+import com.assignment.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {

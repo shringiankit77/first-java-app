@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo Installing Gradle...
+      - chmod +x gradlew
+
+  pre_build:
+    commands:
+      - echo Pre-build phase started
+
+  build:
+    commands:
+      - echo Building Spring Boot application with Gradle...
+      - ./gradlew build -x test
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - build/libs/*.jar

@@ -1,8 +1,8 @@
-package com.assignment.assignment1.service;
+package com.assignment.service;
 
-import com.assignment.assignment1.entity.UserEntity;
-import com.assignment.assignment1.model.User;
-import com.assignment.assignment1.repository.UserRepository;
+import com.assignment.entity.UserEntity;
+import com.assignment.model.User;
+import com.assignment.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
