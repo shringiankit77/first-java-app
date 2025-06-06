@@ -1,5 +1,8 @@
 version: 0.2
-
+env:
+  variables:
+    IMAGE_REPO_NAME: "springboot-app"
+    AWS_REGION: "ap-south-1"
 phases:
   install:
     runtime-versions:
@@ -13,7 +16,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --no-include-email --region $AWS_REGION)
-      - REPOSITORY_URI=<your-ecr-repo-uri> # Replaced in CDK
+      - REPOSITORY_URI=$REPOSITORY_URI # Replaced in CDK
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
 
   build:
