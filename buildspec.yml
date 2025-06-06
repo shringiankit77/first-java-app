@@ -10,17 +10,20 @@ phases:
 
   pre_build:
     commands:
-      - echo Pre-build phase started
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - $(aws ecr get-login --no-include-email --region $AWS_REGION)
+      - REPOSITORY_URI=<your-ecr-repo-uri> # Replaced in CDK
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
 
   build:
     commands:
-      - echo Building Spring Boot application with Gradle...
-      - ./gradlew build -x test
-
+      - echo Building Docker image...
+      - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
   post_build:
     commands:
-      - echo Build completed on `date`
-
+      - echo Pushing Docker image...
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
 artifacts:
-  files:
-    - build/libs/*.jar
+  files: '**/*'
+
