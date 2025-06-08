@@ -24,6 +24,9 @@ phases:
       - echo Building Docker image...
       - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
   post_build:
+    artifacts:
+      files:
+        - build/reports/problems/problems-report.html
     commands:
       - echo Pushing Docker image...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
