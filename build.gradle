@@ -27,7 +27,7 @@ dependencies {
 
 jib {
     to {
-        image = project.hasProperty("imageName") 
+        image = System.getenv("IMAGE_NAME") ?: "my-springboot-app:latest"
         tags = ['latest']
     }
     container {
