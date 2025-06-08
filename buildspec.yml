@@ -11,8 +11,12 @@ phases:
   build:
     commands:
       - echo "Building and pushing image with Jib..."
+      - npm install -g aws-cdk
+      - npm install
+      - cdk synth
       - ./gradlew jib --image=$IMAGE_NAME
 
 artifacts:
+  base-directory: cdk.out
   files:
     - '**/*'
