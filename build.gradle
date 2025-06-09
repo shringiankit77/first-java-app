@@ -27,15 +27,12 @@ dependencies {
 
 jib {
     to {
-        image = System.getenv("IMAGE_NAME") ?: "my-springboot-app:latest"
+        image = System.getenv("IMAGE_NAME") ?: "amazonaws.com/springboot-app"
         tags = ['latest']
-		auth {
-			username = System.getenv('AWS_ECR_USER')
-			password = System.getenv('AWS_ECR_PASSWORD')
-		}
     }
     container {
         jvmFlags = ['-Xms512m', '-Xmx512m']
         ports = ['80']
     }
+
 }
