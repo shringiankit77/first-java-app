@@ -21,7 +21,7 @@ public class UserService {
         userEntity.setName(user.getName());
         userEntity.setDateOfBirth(Date.valueOf(user.getDateOfBirth()));
         UserEntity resp = userRepository.save(userEntity);
-//        resp.setName("AM:"+resp.getName());
+        resp.setName("AM:"+resp.getName());
         return resp;
     }
 
