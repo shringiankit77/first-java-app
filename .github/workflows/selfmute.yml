@@ -1,0 +1,28 @@
+name: CDK SelfMute on Merge
+
+on:
+  push:
+    branches:
+      - master  # triggers only on merges to master
+
+jobs:
+  selfmute:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build project with Maven
+        run: mvn clean install
+
+      - name: Run CDK SelfMute
+        run: |
+          cd assignment
+          mvn exec:java -Dexec.mainClass="com.assignment.AssignmentApplication"
