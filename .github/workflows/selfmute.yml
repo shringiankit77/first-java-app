@@ -3,7 +3,7 @@ name: CDK SelfMute on Merge
 on:
   push:
     branches:
-      - master  # triggers only on merges to master
+      - master
 
 jobs:
   selfmute:
@@ -16,13 +16,12 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
           java-version: '17'
 
       - name: Build project with Maven
-        run: mvn clean install
+        run: ./gradlew clean build
 
       - name: Run CDK SelfMute
         run: |
           cd assignment
-          mvn exec:java -Dexec.mainClass="com.assignment.AssignmentApplication"
+          ./gradlew run -PmainClass=com.assignment.AssignmentApplication
