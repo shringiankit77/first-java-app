@@ -20,7 +20,9 @@ public class UserService {
         userEntity.setEmail(user.getEmail());
         userEntity.setName(user.getName());
         userEntity.setDateOfBirth(Date.valueOf(user.getDateOfBirth()));
-        return userRepository.save(userEntity);
+        UserEntity resp = userRepository.save(userEntity);
+        resp.setName("AM:"+resp.getName());
+        return resp;
     }
 
     public Optional<UserEntity> findUserById(Long id) {
